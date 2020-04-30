@@ -27,17 +27,21 @@ roster = response.json()['roster_team_alltime']['queryResults']['row']
 
 for player in roster:
     print player['name_first_last']
+
+    try:
+        print "Player ID: {}".format(player['player_id'])
+    except:
+        print "Cannot find ID for {}".format(player['name_first_last'])
+    
     
     playerStats = "named.sport_hitting_tm.bam?league_list_id='mlb'&game_type='R'&season={}&player_id={}".format(selectedYear,player['player_id'])
     playerData = requests.get(mlbEndpoint + playerStats)
-
     currPlayer = {}
     currPlayer['name'] = player['name_first_last']
     
-    '''
 
     if (playerData.json()['sport_hitting_tm']['queryResults']['totalSize'] in ['0']):
-        print "Could not find major league data for {} ({})".format(player['name_first_last'],player[player_id])
+        print "Could not find major league data for {} ({})".format(player['name_first_last'],player['player_id'])
     else:
         try:
             print currPlayer['name']
@@ -46,4 +50,3 @@ for player in roster:
             print "{} | {} / {}".format(currPlayer['name'],currPlayer['battingAverage'],currPlayer['onBase'])
         except: 
             print "Error when retrieving data for {}".format(player['name_first_last'])
-           ''' 
