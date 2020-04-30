@@ -1,0 +1,60 @@
+[ Seattle Pilots ]
+Managed by George Coto
+================================================================
+62 | C  | William Lavole         | R | S+     | BT: 20 / WT: 27
+58 | 1B | Eleanor Kelly          | L | C+     | BT: 23 / WT: 31
+61 | 2B | Edith Stephens         | R |        | BT: 24 / WT: 30
+47 | 3B | Anthony Hopper         | L |        | BT: 26 / WT: 34
+10 | SS | Marta Dennis           | L |        | BT: 24 / WT: 34
+35 | LF | Eva Weiner             | L |        | BT: 20 / WT: 28
+49 | CF | Diane Scott            | R | P+     | BT: 19 / WT: 26
+29 | RF | James Medeiros         | L | S+     | BT: 26 / WT: 34
+================================================================
+98 | SP | Amanda Brownlee        | R |        | BT:  6 / WT: 11 | -d4
+90 | SP | Theodore Brien         | R |        | BT: 11 / WT: 19 | d12
+37 | SP | Cynthia Lupu           | L |        | BT: 11 / WT: 19 | -d4
+40 | SP | Mike Mettler           | R |        | BT: 11 / WT: 16 | -d4
+63 | SP | Irene Buckner          | L | ST+    | BT: 14 / WT: 20 | d4
+================================================================
+55 | RP | Glenn Romanowski       | L | ST+    | BT:  9 / WT: 17 | d4
+32 | RP | Thomas Dalton          | R |        | BT: 15 / WT: 23 | d12
+82 | RP | Leslie Domingue        | L |        | BT: 15 / WT: 22 | -d4
+22 | RP | Dwight Pendleton       | L |        | BT: 15 / WT: 21 | d8
+ 7 | RP | Shiela Bottorff        | R |        | BT:  9 / WT: 19 | d4
+================================================================
+96 | PH | Catherine Samuel       | R |        | BT: 23 / WT: 34
+23 | PH | Joseph Mondragon       | R |        | BT: 23 / WT: 27
+93 | PH | Catherine Jones        | R |        | BT: 20 / WT: 27
+17 | PH | Anthony Monsivais      | R |        | BT: 17 / WT: 25
+54 | PH | Robert Chambers        | L |        | BT: 25 / WT: 35
+================================================================
+[ Seattle Pilots ]
+Managed by Jeff Borland
+================================================================
+97 | C  | Rosa Richardson        | S | P++    | BT: 28 / WT: 35
+31 | 1B | Arnold Alsip           | R | S+     | BT: 24 / WT: 30
+36 | 2B | Steve Williamson       | R |        | BT: 28 / WT: 30
+21 | 3B | Michael Bala           | R | C+     | BT: 24 / WT: 34
+ 8 | SS | Alexandra Ebert        | L |        | BT: 27 / WT: 38
+40 | LF | Kristie Kimball        | L |        | BT: 24 / WT: 35
+ 0 | CF | Bernice Davis          | R |        | BT: 28 / WT: 32
+62 | RF | Frank Mcghee           | R | S+     | BT: 33 / WT: 39
+================================================================
+46 | SP | Theodore Burns         | L |        | BT:  9 / WT: 16 | d8
+14 | SP | Leonora Little         | R |        | BT:  8 / WT: 13 | d4
+33 | SP | Delphia Swanner        | L |        | BT: 14 / WT: 21 | -d4
+ 5 | SP | Peggy Baker            | L | K+     | BT: 13 / WT: 17 | d4
+35 | SP | Mary Witherspoon       | L |        | BT: 13 / WT: 15 | d4
+================================================================
+39 | RP | Kelley Edgington       | R | GB+    | BT: 15 / WT: 22 | -d4
+13 | RP | Samantha Pickering     | R |        | BT: 10 / WT: 19 | d8
+32 | RP | Michael Lambert        | R | ST+    | BT: 10 / WT: 16 | d8
+88 | RP | Marion Tripp           | R |        | BT:  9 / WT: 16 | d4
+38 | RP | Frank Phung            | L | GB+    | BT: 15 / WT: 22 | -d4
+================================================================
+59 | PH | Daren Parker           | L |        | BT: 20 / WT: 26
+96 | PH | Fred Hellman           | L |        | BT: 21 / WT: 26
+69 | PH | Yolanda Grimes         | L |        | BT: 20 / WT: 27
+18 | PH | Irvin Ewers            | L |        | BT: 18 / WT: 26
+86 | PH | Shara Schell           | R |        | BT: 24 / WT: 27
+================================================================
