@@ -1,46 +1,13 @@
-class Player(object):
-    '''
-    #XX | LF | Irgavarland Torgverilsson | .356 / .120
-    --------------------------------------------------
-    #01 | P  | John Smith                | Insufficient Data
-
-    -Jersey Number
-    -Position
-    -Name
-    -Batting Average (BA)
-    -On Base Percentage (OBP)
-    '''
-    def __init__(self,player_id=0,jersey_number=-1,position='NA',first_name='NONE',last_name='NONE',batting_average='N/A',on_base_percentage='N/A'):
-        self.id = player_id
-        self.jersey = int(jersey_number)
-        self.position = position
-        self.first_name = first_name
-        self.last_name = last_name
-        self.full_name = "{} {}".format(first_name,last_name)
-        self.batting_average = batting_average
-        self.on_base_percentage = on_base_percentage
-        self.earned_run_average = 99 # Should never be used for non-pitchers
-
-    def pitchDie(self):
-        return '-d12'
-    
-    def display(self):
-        slash_line = "{} / {} |".format(self.batting_average,self.on_base_percentage)
-        
-        if (self.position == 'P'):
-            if (self.batting_average in ['.---','.000','N/A']):
-                slash_line = "AL  PITCHER |"
-            slash_line = "{} {}".format(slash_line,self.pitchDie())
-        elif self.batting_average in ['N/A',".---"]:
-            slash_line = "NO MLB DATA |"
-
-
-        print "#{:2d} | {:2} | {:32} | {}".format(self.jersey,self.position,self.full_name,slash_line)
-
-    def setERA(self,earned_run_average):
-        self.earned_run_average = earned_run_average
-
-
+nicknames = {
+        "Angels" : 108,
+        "Diamondbacks" : 109,
+        "Orioles" : 110,
+        "Red Sox" : 111,
+        "Cubs" : 112,
+        "Reds" : 113,
+        "Astros" : 117,
+        "Mariners" : 136
+        }
 
 org_ids = {
 108 : 'Los Angeles Angels',
