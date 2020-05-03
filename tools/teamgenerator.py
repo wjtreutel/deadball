@@ -3,6 +3,8 @@ import names
 import jsonpickle
 import os
 
+# Just a simple team generator for Deadball
+# Plug and play
 
 class Player(object):
     def rollHandedness(self):
@@ -155,8 +157,8 @@ class Team:
             self.roster.append(newPH)
 
     def displayTeam(self):
-        print "[ {} {} ]".format(self.city,self.name)
-        print "Managed by {}".format(self.manager)
+       # print "[ {} {} ]".format(self.city,self.name)
+       # print "Managed by {}".format(self.manager)
 
         
         print "=" * 64

@@ -1,0 +1,55 @@
+from retrieveMLBRoster import getRoster
+import json
+
+'''
+org_id, year,
+players:
+    id,jersey
+    first_name,last_name
+    handedness,position
+    batting_average,on_base_percentage,earned_run_average
+    traits
+'''
+
+def displayPlayer(player):
+    full_name = player['first_name'] + ' ' + player['last_name'] 
+    batting_target = int(player['batting_target'])
+    walk_target = int(player['walk_target'])
+    pitch_die = ""
+
+    if player.get('pitch_die') != None:
+        pitch_die = player['pitch_die']
+
+
+    print "#{:2} | {:2} | {:24} | Bats: {} | BT: {:2} | WT: {:2} | {:4} | {}".format(player['jersey'],player['position'],full_name,player['handedness'],batting_target,walk_target,pitch_die,player['traits'])
+
+#roster = getRoster(1985,136)
+
+inFile = open('test1985.roster','r')
+
+roster = json.loads(inFile.read())
+players = roster['players']
+
+positions = ['1B','2B','3B','SS','LF','CF','RF','C','IF','OF','DH','UT']
+
+
+
+sorted_roster = []
+pitchers = []
+
+for position in positions:
+    sub_list = []
+    for player in players:
+        if player['position'] == position:
+            sorted_roster.append(player)
+
+pitchers = [x for x in players if x['position'] == 'P']
+
+
+print "SORTED: {} / PITCHERS: {}".format(len(sorted_roster),len(pitchers))
+
+for player in sorted_roster:
+    displayPlayer(player)
+
+for player in pitchers:
+    displayPlayer(player)

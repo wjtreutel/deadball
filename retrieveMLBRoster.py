@@ -20,14 +20,15 @@ def extractStatistics(player_data,desired_statistics,desired_team):
 
     stat_list = player_data['row']
 
+
+    # Player played for multiple teams
     if (number_of_teams not in [0,1]):
         for i in range(0,number_of_teams):
             if (player_data['row'][i]['team_id'] == str(desired_team)):
                 stat_list = stat_list[i]
 
-        
 
-    
+    # desired_statistics -> result
     for item in desired_statistics:
         stat = stat_list[item]
         if stat in ['',' ']:
@@ -95,19 +96,37 @@ def getRoster(selected_year,selected_team):
         try:
             current_first_name,current_last_name = player['name_first_last'].split()
         except Exception, e:
-            print "ERROR: " + str(e)
             current_first_name = player['name_first_last'].split()[0]
             current_last_name = player['name_first_last'].split()[1:]
+            current_last_name = ' '.join(current_last_name)
 
         current_player['first_name'] = current_first_name
         current_player['last_name'] = current_last_name
+        current_player['full_name'] = player['name_first_last']
         current_player['batting_average'] = current_batting_average
         current_player['on_base_percentage'] = current_on_base_percentage
         current_player['handedness'] = player['bats']
         current_player['id'] = player['player_id'] 
         current_player['jersey'] = player['jersey_number']
         current_player['position'] = player['primary_position']
-        current_player['traits'] = hitting_traits
+        current_player['traits'] = ' '.join(hitting_traits)
+
+        # Convert baseball stats to Deadball stats
+        # Some pitchers don't have batting averages,
+        # so they get a standard .150 AVG / .200 OBP instead
+        try:
+            batting_target = round(float(current_batting_average) * 100,0) # .156 -> 15.6 -> 16
+            walk_target = round(float(current_on_base_percentage) * 100,0) 
+        except:
+            batting_target = 15
+            walk_target = 20
+
+        current_player['batting_target'] = batting_target
+        current_player['walk_target'] = walk_target
+
+            
+
+
         array_of_players.append(current_player)
 
         
@@ -122,7 +141,7 @@ def getRoster(selected_year,selected_team):
         try:
             pitching_data = response.json()['sport_pitching_tm']['queryResults']
             pitching_stats = extractStatistics(pitching_data,['era','k9','gidp','bb9','ip'],selected_team)
-            era = pitching_stats[0]
+            earned_run_average = pitching_stats[0]
             pitching_traits = getPitchingTraits(pitching_stats)
 
         except Exception, e:
@@ -130,8 +149,9 @@ def getRoster(selected_year,selected_team):
             era = 'N/A'
             pitching_traits = ''
 
-        pitcher['traits'] = pitching_traits
-        pitcher['earned_run_average'] = era
+        pitcher['traits'] = ' '.join(pitching_traits)
+        pitcher['earned_run_average'] = earned_run_average
+        pitcher['pitch_die'] = getPitchDie(earned_run_average)
 
     roster['players'] = array_of_players
     return json.dumps(roster)
@@ -216,3 +236,28 @@ def getPitchingTraits(pitching_stats):
         result.append('ST+')
 
     return result
+
+
+# Use ERA to calculate the pitcher's pitching ability 
+# Taken from Deadball Quick Start guide
+def getPitchDie(earned_run_average):
+    era = float(earned_run_average)
+    if (era >= 7):
+        return ' -20'
+    if (era >= 6):
+        return '-d20'
+    if (era >= 5):
+        return '-d12'
+    if (era >= 4):
+        return ' -d8'
+    if (era >= 3.5):
+        return ' -d4'
+    if (era >= 3):
+        return '  d4'
+    if (era >= 2):
+        return '  d8'
+    if (era >= 1):
+        return ' d12'
+
+    # Anything less than 1.00 is a d20
+    return ' d20'
