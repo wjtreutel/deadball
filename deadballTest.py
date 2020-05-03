@@ -1,4 +1,4 @@
-from deadballRosterGenerator import getRoster
+from retrieveMLBRoster import getRoster
 from support import *
 from time import sleep
 

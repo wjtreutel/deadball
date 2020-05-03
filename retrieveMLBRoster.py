@@ -56,7 +56,7 @@ def getRoster(selected_year,selected_team):
     # Check to make sure team/year combination is valid
     # TODO: L a m b d a
     if (response.json()['roster_team_alltime']['queryResults']['totalSize'] == "0"):
-        return json.dumps({ "error" : "No players available"})
+        return json.dumps({ "player_count" : 0 })
 
 
 
@@ -154,6 +154,7 @@ def getRoster(selected_year,selected_team):
         pitcher['pitch_die'] = getPitchDie(earned_run_average)
 
     roster['players'] = array_of_players
+    roster['player_count'] = len(roster['players'])
     return json.dumps(roster)
 
 
@@ -163,10 +164,10 @@ def getHittingTraits(hitting_stats):
 
 
     # Skip players with insufficient data
-    if '.---' in hitting_stats:
-        return result
-    
-    batting_average,on_base_percentage,slugging,doubles,home_runs,strikeouts,plate_appearances,steals = [float(x) for x in hitting_stats]
+    try:
+        batting_average,on_base_percentage,slugging,doubles,home_runs,strikeouts,plate_appearances,steals = [float(x) for x in hitting_stats]
+    except:
+        return
 
     # Derived Statistics
     k_percentage = strikeouts / plate_appearances
@@ -241,7 +242,15 @@ def getPitchingTraits(pitching_stats):
 # Use ERA to calculate the pitcher's pitching ability 
 # Taken from Deadball Quick Start guide
 def getPitchDie(earned_run_average):
-    era = float(earned_run_average)
+
+    # The MLB doesn't have a consistent way of marking "No ERA available"
+    # Sometimes it's '-.--', sometimes '*.**', sometimes not
+    try:
+        era = float(earned_run_average)
+    except:
+        era = 3.4
+
+
     if (era >= 7):
         return ' -20'
     if (era >= 6):

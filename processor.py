@@ -23,11 +23,25 @@ def displayPlayer(player):
 
     print "#{:2} | {:2} | {:24} | Bats: {} | BT: {:2} | WT: {:2} | {:4} | {}".format(player['jersey'],player['position'],full_name,player['handedness'],batting_target,walk_target,pitch_die,player['traits'])
 
-#roster = getRoster(1985,136)
 
-inFile = open('test1985.roster','r')
 
-roster = json.loads(inFile.read())
+
+print "Select Year (1900 - 2020)"
+year = raw_input('> ')
+
+print "Select Team"
+team = raw_input('> ')
+
+roster = json.loads(getRoster(year,team))
+
+if roster['player_count'] == 0:
+    print "ERROR: No data found for that year/team combination. (Are you sure it existed at the time?)"
+    print "Exiting . . . "
+    exit()
+
+#inFile = open('test1985.roster','r')
+#roster = json.loads(inFile.read())
+
 players = roster['players']
 
 positions = ['1B','2B','3B','SS','LF','CF','RF','C','IF','OF','DH','UT']
