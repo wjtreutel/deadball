@@ -1,5 +1,6 @@
 from retrieveMLBRoster import getRoster
 import json
+from support import *
 
 '''
 org_id, year,
@@ -26,11 +27,28 @@ def displayPlayer(player):
 
 
 
-print "Select Year (1900 - 2020)"
-year = raw_input('> ')
+print "Select Year (1900 - 2019)"
+year = raw_input('year> ')
 
-print "Select Team"
-team = raw_input('> ')
+while int(year) not in range (1900,2020):
+    print "Invalid response. Please select a year between 1900 and 2019."
+    year = raw_input('year> ')
+
+
+print "Select Team (enter ? for list of team codes)"
+team = raw_input('team> ')
+
+while (team == '?') or (int(team) not in mlb_teams):
+    if team == '?':
+        for code in mlb_teams:
+            print "{}) {}".format(code,org_ids[code])
+        team = raw_input('team> ')
+
+    else:
+        print "Invalid response. Please input a valid team code (press ? for a list of team codes)"
+        team = raw_input('team> ')
+
+
 
 roster = json.loads(getRoster(year,team))
 

@@ -1,0 +1,11 @@
+HOW TO USE:
+
+1. Fire up "mlbToDeadballConverter.py"
+2. Enter desired year and team name
+3. Select players from roster and write them down on your roster sheet
+
+
+NOTES:
+1. This converter works with raw data. You'll need to sanity check it yourself (a player with two PAs can have an OBP of .500, for example)
+2. The farther back you go, the less reliable the data is, and the more you will need to check it
+
