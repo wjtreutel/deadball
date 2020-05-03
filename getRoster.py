@@ -1,26 +1,40 @@
 import json,requests
-from time import sleep
 
+
+# Input: 
+#    -[JSON] player_data: Query results containing statistical data (hitting, pitching, fielding, etc.) 
+#    -[List] desired_statistics: Contains names of statistics to be returnead ('obp','avg','babip')
+#                                If you wish to use this function, you will need to look up the abbreviations that the MLB uses
+#    -[int]  desired_team: MLB Organizational ID (org_id) for specific team you want stats from
 def extractStatistics(player_data,desired_statistics,desired_team):
     result = []
     number_of_teams = int(player_data['totalSize'])
 
 
+
+    # If a player has not hitting stats, return an array of '-' values
     if (number_of_teams < 1):
         for i in desired_statistics:
-            result.append('N/A')
-    elif (number_of_teams not in [0,1]):
-        for team in player_data['row']:
-            if team['team_id'] == desired_team:
-                for stat in desired_statistics:
-                    result.append(team[stat])
-            return result
-    else:
-        try:
-            for stat in desired_statistics:
-                result.append(player_data['row'][stat])
-        except: 
-            print "Error when retrieving {} for player #{}".format(desired_statistics,player_data['row']['player_id'])
+            result.append('-')
+        return result
+
+    stat_list = player_data['row']
+
+    if (number_of_teams not in [0,1]):
+        for i in range(0,number_of_teams):
+            if (player_data['row'][i]['team_id'] == str(desired_team)):
+                stat_list = stat_list[i]
+
+        
+
+    
+    for item in desired_statistics:
+        stat = stat_list[item]
+        if stat in ['',' ']:
+            stat = '0'
+
+        result.append(stat_list[item])
+
     return result
 
 
@@ -37,6 +51,14 @@ def getRoster(selected_year,selected_team):
 
     response = requests.get(mlb_endpoint + team_request)
 
+
+    # Check to make sure team/year combination is valid
+    # TODO: L a m b d a
+    if (response.json()['roster_team_alltime']['queryResults']['totalSize'] == "0"):
+        return json.dumps({ "error" : "No players available"})
+
+
+
     # Strips out the copyright and metadata and gets straight to the good stuff
     player_list = response.json()['roster_team_alltime']['queryResults']['row']
 
@@ -45,7 +67,6 @@ def getRoster(selected_year,selected_team):
     for player in player_list:
         if player['primary_position'] in []:
             continue
-        print "==={} ({})===".format(player['name_first_last'],player['primary_position'])
         batting_request = "named.sport_hitting_tm.bam?league_list_id='mlb'&game_type='R'&season={}&player_id={}".format(selected_year,player['player_id'])
         response = requests.get(mlb_endpoint + batting_request)
 
@@ -55,13 +76,19 @@ def getRoster(selected_year,selected_team):
         player_data = response.json()['sport_hitting_tm']['queryResults']
 
         try:
-            hitting_statistics =  extractStatistics(player_data,['avg','obp','slg','d','hr','so','tpa','sb'],121)
+            hitting_statistics =  extractStatistics(player_data,['avg','obp','slg','d','hr','so','tpa','sb'],selected_team)
             current_batting_average,current_on_base_percentage,slg = hitting_statistics[0:3]
-            hitting_traits = getHittingTraits(hitting_statistics)
         except Exception, e:
+            print "ERROR: " + str(e)
             current_on_base_percentage,slg,current_batting_average = ['N/A','N/A','N/A']
             hitting_traits = ''
+        hitting_statistics =  extractStatistics(player_data,['avg','obp','slg','d','hr','so','tpa','sb'],selected_team)
 
+        # Pitchers don't get hitting traits
+        if player['primary_position'] not in ['P']:
+            hitting_traits = getHittingTraits(hitting_statistics)
+        else:
+            hitting_traits = []
 
 
         current_player = dict()
@@ -98,14 +125,13 @@ def getRoster(selected_year,selected_team):
             era = pitching_stats[0]
             pitching_traits = getPitchingTraits(pitching_stats)
 
-        except Exception,e:
+        except Exception, e:
             print "ERROR: " + str(e)
             era = 'N/A'
             pitching_traits = ''
 
-        pitcher['traits'] = "{} {}".format(pitcher['traits'],pitching_traits)
+        pitcher['traits'] = pitching_traits
         pitcher['earned_run_average'] = era
-        print pitcher['traits']
 
     roster['players'] = array_of_players
     return json.dumps(roster)
@@ -115,15 +141,16 @@ def getRoster(selected_year,selected_team):
 def getHittingTraits(hitting_stats):
     result = []
 
-    # The MLB Endpoint does not provide Ground Into Double Play (GIDP) data prior to 1998
-    # TODO: H A N D L E  
+
+    # Skip players with insufficient data
+    if '.---' in hitting_stats:
+        return result
     
     batting_average,on_base_percentage,slugging,doubles,home_runs,strikeouts,plate_appearances,steals = [float(x) for x in hitting_stats]
 
     # Derived Statistics
     k_percentage = strikeouts / plate_appearances
     isolated_power = float(slugging) - float(batting_average)
-
 
 
     # Power Stats - P+ (20HR || 450 SLG) / P++ (35 HR, 540 SLG)
@@ -136,7 +163,6 @@ def getHittingTraits(hitting_stats):
         result.append('P-')
     elif ((home_runs <= 10) or (isolated_power < .090)):
         result.append('P--')
-
 
 
     # Contact - C+ (35 doubles || K% <= 10)
@@ -153,16 +179,22 @@ def getHittingTraits(hitting_stats):
     if (steals == 0):
         result.append('S-')
 
-    print result
     return result
 
 # Sets pitcher bonus traits according to Deadball rulebook (p. 39)
 def getPitchingTraits(pitching_stats):
     result = []
 
-     
+    # The MLB Endpoint does not provide GIDP before 1998
+    # This is a messy workaround
+    # TODO: Fix
+    if len(pitching_stats[2]) == 0:
+            pitching_stats[2] = '0'
+
+
 
     earned_run_average,strikeouts_per_nine,ground_into_double_play,walks_per_nine,innings_pitched = [float(x) for x in pitching_stats]
+
 
     # Strikeout Artist - 9+ strikeouts per nine innings 
     if (strikeouts_per_nine >= 9):
@@ -184,11 +216,3 @@ def getPitchingTraits(pitching_stats):
         result.append('ST+')
 
     return result
-
-
-
-
-for year in range(1990,2010):
-    print "============" + str(year) + "============"
-    getRoster(year,136)
-    sleep(10)

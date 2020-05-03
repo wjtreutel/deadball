@@ -1,14 +1,3 @@
-nicknames = {
-        "Angels" : 108,
-        "Diamondbacks" : 109,
-        "Orioles" : 110,
-        "Red Sox" : 111,
-        "Cubs" : 112,
-        "Reds" : 113,
-        "Astros" : 117,
-        "Mariners" : 136
-        }
-
 org_ids = {
 108 : 'Los Angeles Angels',
 109 : 'Arizona Diamondbacks',
@@ -109,3 +98,5 @@ org_ids = {
 298 : 'Baltimore Orioles',
 299 : 'Troy Trojans'
 }
+
+mlb_teams = [108,109,110,111,112,113,114,115,116,117,118,119,120,121,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,158]
