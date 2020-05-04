@@ -140,16 +140,32 @@ def getRoster(selected_year,selected_team):
 
         try:
             pitching_data = response.json()['sport_pitching_tm']['queryResults']
-            pitching_stats = extractStatistics(pitching_data,['era','k9','gidp','bb9','ip'],selected_team)
+            pitching_stats = extractStatistics(pitching_data,['era','k9','gidp','bb9','ip','g','gs'],selected_team)
             earned_run_average = pitching_stats[0]
+            innings_pitched = pitching_stats[4]
+            games_played = int(pitching_stats[5])
+            games_started = int(pitching_stats[6])
             pitching_traits = getPitchingTraits(pitching_stats)
+
+
+            if float(innings_pitched) == 0:
+                pitcher['position'] = 'P'
+            elif games_started == 0:
+                pitcher['position'] = 'RP'
+            else:
+                pitcher['position'] = 'SP'
+
 
         except Exception, e:
             print "ERROR: " + str(e)
             era = 'N/A'
             pitching_traits = ''
 
-        pitcher['traits'] = ' '.join(pitching_traits)
+        try:
+            pitcher['traits'] = ' '.join(pitching_traits)
+        except:
+            pitcher['traits'] = pitching_traits
+
         pitcher['earned_run_average'] = earned_run_average
         pitcher['pitch_die'] = getPitchDie(earned_run_average)
 
@@ -214,7 +230,7 @@ def getPitchingTraits(pitching_stats):
 
 
 
-    earned_run_average,strikeouts_per_nine,ground_into_double_play,walks_per_nine,innings_pitched = [float(x) for x in pitching_stats]
+    earned_run_average,strikeouts_per_nine,ground_into_double_play,walks_per_nine,innings_pitched,games,games_started = [float(x) for x in pitching_stats]
 
 
     # Strikeout Artist - 9+ strikeouts per nine innings 
