@@ -75,7 +75,7 @@ for position in positions:
         if player['position'] == position:
             sorted_roster.append(player)
 
-pitchers = [x for x in players if x['position'] == 'P']
+pitchers = [x for x in players if x['position'] in ['SP','RP','P']]
 
 
 print "SORTED: {} / PITCHERS: {}".format(len(sorted_roster),len(pitchers))

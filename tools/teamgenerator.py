@@ -2,6 +2,7 @@ from random import randint,shuffle
 import names
 import jsonpickle
 import os
+from sys import argv
 
 # Just a simple team generator for Deadball
 # Plug and play
@@ -109,16 +110,21 @@ class StartingPitcher(Player):
     def rollPitcherAbility(self):
         roll = randint(1,8)
         if roll == 1:
+            self.pitchScore = 12
             return 'd12'
         elif roll < 4:
+            self.pitchScore = 8
             return 'd8'
         elif roll < 7:
+            self.pitchScore = 4
             return 'd4'
         else:
+            self.pitchScore = -4
             return '-d4'
 
     def display(self):
-        traitList = ' '.join(self.traits) 
+        traitList = ' '.join(self.traits)
+
         print "{:2d} | {:2} | {:22} | {} | {:6} | BT: {:2.0f} / WT: {:2.0f} | {}".format(self.rank,self.position,self.fullName,self.handedness,traitList,self.battingAverage,self.onBasePercentage,self.pitchDie)
 
 
@@ -130,6 +136,10 @@ class Team:
         self.name = "Pilots"
         self.stadium = "Sick Stadium"
         self.manager = names.get_full_name()
+        self.teamScore = 0
+
+        batterScore = 0
+        pitcherScore = 0
 
         # Fill the Roster
         self.roster = []
@@ -139,22 +149,28 @@ class Team:
 
         for pos in self.positionPool: 
             newPlayer = Hitter(position=pos,rank=self.jerseyPool.pop())
+            batterScore = batterScore + newPlayer.battingAverage
             self.roster.append(newPlayer)
        
+        # Generate 5 pinch hitters
+        for x in range(0,5):
+            newPH = PinchHitter("PH",self.jerseyPool.pop())
+            batterScore = batterScore + newPH.battingAverage
+            self.roster.append(newPH)
+
         # Generate 5 Starting Pitchers
         for x in range (0,5):
             newPitcher = StartingPitcher("SP",self.jerseyPool.pop())
+            pitcherScore = pitcherScore + newPitcher.pitchScore
             self.roster.append(newPitcher)
 
         # Generate 7 relievers
         for x in range (0,7):
             newReliever = StartingPitcher("RP",self.jerseyPool.pop())
+            pitcherScore = pitcherScore + newReliever.pitchScore
             self.roster.append(newReliever)
-
-        # Generate 5 pinch hitters
-        for x in range(0,5):
-            newPH = PinchHitter("PH",self.jerseyPool.pop())
-            self.roster.append(newPH)
+        
+        self.teamScore = (batterScore + (pitcherScore * 7)) / 10
 
     def displayTeam(self):
        # print "[ {} {} ]".format(self.city,self.name)
@@ -170,13 +186,15 @@ class Team:
             player.display()
 
         print "=" * 64
-        for player in self.roster[13:20]:
+        for player in self.roster[13:18]:
             player.display()
 
         print "=" * 64
-        for player in self.roster[20:]:
+        for player in self.roster[18:]:
             player.display()
         print "=" *  64 
+
+        print "TEAM SCORE: {}".format(int(round(self.teamScore)))
 
     def generateBattingOrder(self):
         battingOrder = self.roster[0:8]
@@ -185,11 +203,40 @@ class Team:
         for player in battingOrder:
             player.display()
 
+
+# Process command line arguments
+minimumScore = 0
+maximumScore = 999
+
+if len(argv) > 3:
+    print argv
+    print "ERROR: Too many arguments"
+    print "(Usage: python teamgenerator.py <optional minimum score, or 0 if using max score> <optional maximum score>)"
+    exit()
+if len(argv) == 3:
+    try:
+        maximumScore = int(argv[2])
+    except:
+        print "ERROR: Cannot convert '{}' to integer".format(argv[2])
+        exit()
+if len(argv) >= 2:
+    try:
+        minimumScore = int(argv[1])
+    except:
+        print "ERROR: Cannot convert '{}' to integer".format(argv[1])
+        exit()
+
+
+
 newTeam = Team()
+while (newTeam.teamScore < minimumScore) or (newTeam.teamScore > maximumScore):
+    print "Score out of range ({}). Rerolling . . .".format(newTeam.teamScore)
+    newTeam = Team()
 newTeam.displayTeam()
 
 teamData = jsonpickle.encode(newTeam)
 
+'''
 print "Would you like to save this team?"
 reply = raw_input('> ')
 if (reply in ['Y','y','yes','YES','Yes']):
@@ -210,3 +257,4 @@ if (reply in ['Y','y','yes','YES','Yes']):
 
 else:
     print "Exiting . . ."
+'''

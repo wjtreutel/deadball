@@ -109,7 +109,7 @@ def getRoster(selected_year,selected_team):
         current_player['id'] = player['player_id'] 
         current_player['jersey'] = player['jersey_number']
         current_player['position'] = player['primary_position']
-        current_player['traits'] = ' '.join(hitting_traits)
+        current_player['traits'] = hitting_traits
 
         # Convert baseball stats to Deadball stats
         # Some pitchers don't have batting averages,
@@ -161,10 +161,7 @@ def getRoster(selected_year,selected_team):
             era = 'N/A'
             pitching_traits = ''
 
-        try:
-            pitcher['traits'] = ' '.join(pitching_traits)
-        except:
-            pitcher['traits'] = pitching_traits
+        pitcher['traits'] = pitching_traits
 
         pitcher['earned_run_average'] = earned_run_average
         pitcher['pitch_die'] = getPitchDie(earned_run_average)
@@ -216,7 +213,7 @@ def getHittingTraits(hitting_stats):
     if (steals == 0):
         result.append('S-')
 
-    return result
+    return ' '.join(result)
 
 # Sets pitcher bonus traits according to Deadball rulebook (p. 39)
 def getPitchingTraits(pitching_stats):
@@ -227,7 +224,6 @@ def getPitchingTraits(pitching_stats):
     # TODO: Fix
     if len(pitching_stats[2]) == 0:
             pitching_stats[2] = '0'
-
 
 
     earned_run_average,strikeouts_per_nine,ground_into_double_play,walks_per_nine,innings_pitched,games,games_started = [float(x) for x in pitching_stats]
@@ -252,7 +248,7 @@ def getPitchingTraits(pitching_stats):
     if (innings_pitched > 200):
         result.append('ST+')
 
-    return result
+    return ' '.join(result)
 
 
 # Use ERA to calculate the pitcher's pitching ability 
