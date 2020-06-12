@@ -10,7 +10,7 @@ This project is a suite of tools for the paper and pencil game Deadball.
 ## What's Included
 On the Back End: 
 * retrieveMLBRosters.py  -- Lambda function to retrieve roster from MLB database
-* retrieveDeadballRoster.py (unfinished) -- retrieves prior team from DynamoDB or generates a new one from scratch
+* retrieveDeadballRoster.py (coming soon) -- retrieves prior team from DynamoDB or generates a new one from scratch
 
 On the Front End:
 * index.html & fetchRoster.js -- Displays MLB team from given year in table format
