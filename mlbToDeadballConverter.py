@@ -1,4 +1,4 @@
-from retrieveMLBRoster import getRoster
+from lambda_retrieveMLBRoster import getRoster
 import json
 from support import *
 

@@ -1,0 +1,868 @@
+{
+  "abbreviation": {
+    "S": "KNX"
+  },
+  "team_name": {
+    "S": "Knoxville Grackles"
+  },
+  "year": {
+    "S": "2019"
+  },
+  "players": {
+    "L": [
+      {
+        "M": {
+          "first_name": {
+            "S": "Allen"
+          },
+          "last_name": {
+            "S": "Millican"
+          },
+          "full_name": {
+            "S": "Allen Millican"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "CF"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "27"
+          },
+          "walk_target": {
+            "S": "34"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Mac"
+          },
+          "last_name": {
+            "S": "McClintock"
+          },
+          "full_name": {
+            "S": "Mac McClintock"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "SS"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "31"
+          },
+          "walk_target": {
+            "S": "38"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Denise"
+          },
+          "last_name": {
+            "S": "Atkins"
+          },
+          "full_name": {
+            "S": "Denise Atkins"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "RF"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "31"
+          },
+          "walk_target": {
+            "S": "38"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": "P++"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Scott"
+          },
+          "last_name": {
+            "S": "Kent"
+          },
+          "full_name": {
+            "S": "Scott Kent"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "2B"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "27"
+          },
+          "walk_target": {
+            "S": "30"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Kate"
+          },
+          "last_name": {
+            "S": "Coughlin"
+          },
+          "full_name": {
+            "S": "Kate Coughlin"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "1B"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "26"
+          },
+          "walk_target": {
+            "S": "29"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Alexandra"
+          },
+          "last_name": {
+            "S": "Touart"
+          },
+          "full_name": {
+            "S": "Alexandra Touart"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "LF"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "25"
+          },
+          "walk_target": {
+            "S": "31"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Michael"
+          },
+          "last_name": {
+            "S": "Stahl"
+          },
+          "full_name": {
+            "S": "Michael Stahl"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "3B"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "23"
+          },
+          "walk_target": {
+            "S": "32"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": "D+"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Andy"
+          },
+          "last_name": {
+            "S": "Zak"
+          },
+          "full_name": {
+            "S": "Andy Zak"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "C"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "23"
+          },
+          "walk_target": {
+            "S": "30"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": "D+"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Casey"
+          },
+          "last_name": {
+            "S": "Matteson"
+          },
+          "full_name": {
+            "S": "Casey Matteson"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "OF"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "23"
+          },
+          "walk_target": {
+            "S": "32"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "AMJ Firecracker"
+          },
+          "last_name": {
+            "S": "Phelps"
+          },
+          "full_name": {
+            "S": "AMJ Firecracker Phelps"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "OF"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "21"
+          },
+          "walk_target": {
+            "S": "29"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Doc"
+          },
+          "last_name": {
+            "S": "Rafos"
+          },
+          "full_name": {
+            "S": "Doc Rafos"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "INF"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "25"
+          },
+          "walk_target": {
+            "S": "29"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Lilian"
+          },
+          "last_name": {
+            "S": "Varela"
+          },
+          "full_name": {
+            "S": "Lilian Varela"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "INF"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "25"
+          },
+          "walk_target": {
+            "S": "32"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Ron"
+          },
+          "last_name": {
+            "S": "Plunk"
+          },
+          "full_name": {
+            "S": "Ron Plunk"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "C"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "22"
+          },
+          "walk_target": {
+            "S": "26"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Crackerjack"
+          },
+          "last_name": {
+            "S": "Allen"
+          },
+          "full_name": {
+            "S": "Crackerjack Allen"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "SP"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "11"
+          },
+          "walk_target": {
+            "S": "17"
+          },
+          "pitch_die": {
+            "S": "12"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Cheyenne"
+          },
+          "last_name": {
+            "S": "Karp"
+          },
+          "full_name": {
+            "S": "Cheyenne Karp"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "SP"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "9"
+          },
+          "walk_target": {
+            "S": "15"
+          },
+          "pitch_die": {
+            "S": "8"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Malia"
+          },
+          "last_name": {
+            "S": "Novak"
+          },
+          "full_name": {
+            "S": "Malia Novak"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "SP"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "8"
+          },
+          "walk_target": {
+            "S": "14"
+          },
+          "pitch_die": {
+            "S": "8"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Erie"
+          },
+          "last_name": {
+            "S": "Harrison"
+          },
+          "full_name": {
+            "S": "Erie Harrison"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "SP"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "6"
+          },
+          "walk_target": {
+            "S": "7"
+          },
+          "pitch_die": {
+            "S": "4"
+          },
+          "traits": {
+            "S": "K+"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Kid"
+          },
+          "last_name": {
+            "S": "Easton"
+          },
+          "full_name": {
+            "S": "Kid Easton"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "SP"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "8"
+          },
+          "walk_target": {
+            "S": "15"
+          },
+          "pitch_die": {
+            "S": "4"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Jay"
+          },
+          "last_name": {
+            "S": "Street"
+          },
+          "full_name": {
+            "S": "Jay Street"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "RP"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "13"
+          },
+          "walk_target": {
+            "S": "18"
+          },
+          "pitch_die": {
+            "S": "12"
+          },
+          "traits": {
+            "S": "K+"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Filip"
+          },
+          "last_name": {
+            "S": "Cervantes"
+          },
+          "full_name": {
+            "S": "Filip Cervantes"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "RP"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "4"
+          },
+          "walk_target": {
+            "S": "10"
+          },
+          "pitch_die": {
+            "S": "12"
+          },
+          "traits": {
+            "S": "K+"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Julie"
+          },
+          "last_name": {
+            "S": "Sterline"
+          },
+          "full_name": {
+            "S": "Julie Sterline"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "RP"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "3"
+          },
+          "walk_target": {
+            "S": "7"
+          },
+          "pitch_die": {
+            "S": "8"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Kiley"
+          },
+          "last_name": {
+            "S": "Jaramillo"
+          },
+          "full_name": {
+            "S": "Kiley Jaramillo"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "RP"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "9"
+          },
+          "walk_target": {
+            "S": "16"
+          },
+          "pitch_die": {
+            "S": "8"
+          },
+          "traits": {
+            "S": "GB+"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Wally"
+          },
+          "last_name": {
+            "S": "Gilbert"
+          },
+          "full_name": {
+            "S": "Wally Gilbert"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "RP"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "10"
+          },
+          "walk_target": {
+            "S": "16"
+          },
+          "pitch_die": {
+            "S": "4"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Susumu"
+          },
+          "last_name": {
+            "S": "Maeda"
+          },
+          "full_name": {
+            "S": "Susumu Maeda"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "RP"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "12"
+          },
+          "walk_target": {
+            "S": "15"
+          },
+          "pitch_die": {
+            "S": "-4"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Dustin"
+          },
+          "last_name": {
+            "S": "Floyd"
+          },
+          "full_name": {
+            "S": "Dustin Floyd"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "RP"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "7"
+          },
+          "walk_target": {
+            "S": "12"
+          },
+          "pitch_die": {
+            "S": "-4"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      }
+    ]
+  },
+  "player_count": {
+    "N": "25"
+  }
+}

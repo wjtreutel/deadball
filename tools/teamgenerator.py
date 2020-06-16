@@ -8,6 +8,19 @@ from sys import argv
 # Plug and play
 
 class Player(object):
+    def __init__(self,position = 'SDP',rank = 0):
+        self.rank = rank
+        self.firstName = names.get_first_name()
+        self.lastName = names.get_last_name()
+        self.fullName = self.firstName + ' ' + self.lastName
+        self.position = position
+        self.battingAverage = self.rollBattingAverage()
+        self.onBasePercentage = self.battingAverage + randint(1,6) + randint(1,6)
+        self.handedness = self.rollHandedness()
+        self.traits = self.rollTraits()
+    
+
+    
     def rollHandedness(self):
         roll = randint(1,10)
         if roll in range(0,7):
@@ -25,16 +38,7 @@ class Player(object):
         traits = []
         return traits
 
-    def __init__(self,position = 'SDP',rank = 0):
-        self.rank = rank
-        self.firstName = names.get_first_name()
-        self.lastName = names.get_last_name()
-        self.fullName = self.firstName + ' ' + self.lastName
-        self.position = position
-        self.battingAverage = self.rollBattingAverage()
-        self.onBasePercentage = self.battingAverage + randint(1,6) + randint(1,6)
-        self.handedness = self.rollHandedness()
-        self.traits = self.rollTraits()
+
 
     def display(self):
         traitList = ' '.join(self.traits) 
@@ -59,6 +63,7 @@ class Hitter(Player):
         if roll == 12:
             traits.append('P++')
         return traits
+
 
 
 
@@ -230,13 +235,12 @@ if len(argv) >= 2:
 
 newTeam = Team()
 while (newTeam.teamScore < minimumScore) or (newTeam.teamScore > maximumScore):
-    print "Score out of range ({}). Rerolling . . .".format(newTeam.teamScore)
     newTeam = Team()
 newTeam.displayTeam()
 
 teamData = jsonpickle.encode(newTeam)
 
-'''
+
 print "Would you like to save this team?"
 reply = raw_input('> ')
 if (reply in ['Y','y','yes','YES','Yes']):
@@ -251,10 +255,9 @@ if (reply in ['Y','y','yes','YES','Yes']):
         reply = raw_input('> ')
         outfile = "{}.roster".format(reply)
     savefile = open(outfile,'w')
-    savefile.write(teamdata)
+    savefile.write(teamData)
     savefile.close()
     print "<<Output to file>>"
 
 else:
     print "Exiting . . ."
-'''

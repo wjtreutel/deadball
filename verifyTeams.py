@@ -17,7 +17,7 @@ for team in [112]:
         print "=========={}==========".format(year)
         for i in range (0,1):
             try:
-                print "Sucess"
+                print "Success"
             except Exception, e:
                 print "ERROR: " + str(e)
                 sleep(5)

@@ -1,0 +1,868 @@
+{
+  "abbreviation": {
+    "S": "CHV"
+  },
+  "team_name": {
+    "S": "Charlottesville Flycatchers"
+  },
+  "year": {
+    "S": "2019"
+  },
+  "players": {
+    "L": [
+      {
+        "M": {
+          "first_name": {
+            "S": "Brant"
+          },
+          "last_name": {
+            "S": "McKown"
+          },
+          "full_name": {
+            "S": "Brant McKown"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "SS"
+          },
+          "handedness": {
+            "S": "l"
+          },
+          "batting_target": {
+            "S": "35"
+          },
+          "walk_target": {
+            "S": "38"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": "S+"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Neil"
+          },
+          "last_name": {
+            "S": "Tredray"
+          },
+          "full_name": {
+            "S": "Neil Tredray"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "RF"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "31"
+          },
+          "walk_target": {
+            "S": "43"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": "P++"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Colin"
+          },
+          "last_name": {
+            "S": "Beasley"
+          },
+          "full_name": {
+            "S": "Colin Beasley"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "2B"
+          },
+          "handedness": {
+            "S": "S"
+          },
+          "batting_target": {
+            "S": "31"
+          },
+          "walk_target": {
+            "S": "38"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": "D+"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Tavis"
+          },
+          "last_name": {
+            "S": "Lesser"
+          },
+          "full_name": {
+            "S": "Tavis Lesser"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "LF"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "32"
+          },
+          "walk_target": {
+            "S": "35"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Nick"
+          },
+          "last_name": {
+            "S": "Fuhs"
+          },
+          "full_name": {
+            "S": "Nick Fuhs"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "3B"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "28"
+          },
+          "walk_target": {
+            "S": "37"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Funie"
+          },
+          "last_name": {
+            "S": "Steed"
+          },
+          "full_name": {
+            "S": "Funie Steed"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "CF"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "25"
+          },
+          "walk_target": {
+            "S": "35"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Adie"
+          },
+          "last_name": {
+            "S": "Barnett"
+          },
+          "full_name": {
+            "S": "Adie Barnett"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "C"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "29"
+          },
+          "walk_target": {
+            "S": "33"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": "D+"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Ben"
+          },
+          "last_name": {
+            "S": "Coleman"
+          },
+          "full_name": {
+            "S": "Ben Coleman"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "1B"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "26"
+          },
+          "walk_target": {
+            "S": "33"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Liberty"
+          },
+          "last_name": {
+            "S": "Ashes"
+          },
+          "full_name": {
+            "S": "Liberty Ashes"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "OF"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "20"
+          },
+          "walk_target": {
+            "S": "30"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": "S+ D+"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Clint"
+          },
+          "last_name": {
+            "S": "Wattenberg"
+          },
+          "full_name": {
+            "S": "Clint Wattenberg"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "OF"
+          },
+          "handedness": {
+            "S": "S"
+          },
+          "batting_target": {
+            "S": "21"
+          },
+          "walk_target": {
+            "S": "31"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": "P+ C-"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Z.J."
+          },
+          "last_name": {
+            "S": "Hunt"
+          },
+          "full_name": {
+            "S": "Z.J. Hunt"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "INF"
+          },
+          "handedness": {
+            "S": "S"
+          },
+          "batting_target": {
+            "S": "26"
+          },
+          "walk_target": {
+            "S": "35"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "B.P."
+          },
+          "last_name": {
+            "S": "Island"
+          },
+          "full_name": {
+            "S": "B.P. Island"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "INF"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "25"
+          },
+          "walk_target": {
+            "S": "31"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": "D-"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Spanky"
+          },
+          "last_name": {
+            "S": "Ellis"
+          },
+          "full_name": {
+            "S": "Spanky Ellis"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "C"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "22"
+          },
+          "walk_target": {
+            "S": "28"
+          },
+          "pitch_die": {
+            "S": "N/A"
+          },
+          "traits": {
+            "S": "C-"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Eephus"
+          },
+          "last_name": {
+            "S": "Hargett"
+          },
+          "full_name": {
+            "S": "Eephus Hargett"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "SP"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "12"
+          },
+          "walk_target": {
+            "S": "19"
+          },
+          "pitch_die": {
+            "S": "8"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "J.J."
+          },
+          "last_name": {
+            "S": "Perkins"
+          },
+          "full_name": {
+            "S": "J.J. Perkins"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "SP"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "6"
+          },
+          "walk_target": {
+            "S": "12"
+          },
+          "pitch_die": {
+            "S": "8"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Two Names"
+          },
+          "last_name": {
+            "S": "Cecil"
+          },
+          "full_name": {
+            "S": "Two Names Cecil"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "SP"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "11"
+          },
+          "walk_target": {
+            "S": "14"
+          },
+          "pitch_die": {
+            "S": "8"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Richie"
+          },
+          "last_name": {
+            "S": "McGraw"
+          },
+          "full_name": {
+            "S": "Richie McGraw"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "SP"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "13"
+          },
+          "walk_target": {
+            "S": "17"
+          },
+          "pitch_die": {
+            "S": "8"
+          },
+          "traits": {
+            "S": "K+"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Augustus"
+          },
+          "last_name": {
+            "S": "Bean"
+          },
+          "full_name": {
+            "S": "Augustus Bean"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "SP"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "12"
+          },
+          "walk_target": {
+            "S": "18"
+          },
+          "pitch_die": {
+            "S": "-4"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Hirom"
+          },
+          "last_name": {
+            "S": "Williams"
+          },
+          "full_name": {
+            "S": "Hirom Williams"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "RP"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "8"
+          },
+          "walk_target": {
+            "S": "13"
+          },
+          "pitch_die": {
+            "S": "8"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Mama"
+          },
+          "last_name": {
+            "S": "Solash"
+          },
+          "full_name": {
+            "S": "Mama Solash"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "RP"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "0"
+          },
+          "walk_target": {
+            "S": "13"
+          },
+          "pitch_die": {
+            "S": "8"
+          },
+          "traits": {
+            "S": "GB+"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Don"
+          },
+          "last_name": {
+            "S": "Wakamatsu"
+          },
+          "full_name": {
+            "S": "Don Wakamatsu"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "RP"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "7"
+          },
+          "walk_target": {
+            "S": "12"
+          },
+          "pitch_die": {
+            "S": "4"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Coaker"
+          },
+          "last_name": {
+            "S": "Veach"
+          },
+          "full_name": {
+            "S": "Coaker Veach"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "RP"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "7"
+          },
+          "walk_target": {
+            "S": "12"
+          },
+          "pitch_die": {
+            "S": "4"
+          },
+          "traits": {
+            "S": "ST+"
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Ed"
+          },
+          "last_name": {
+            "S": "Burns"
+          },
+          "full_name": {
+            "S": "Ed Burns"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "RP"
+          },
+          "handedness": {
+            "S": "L"
+          },
+          "batting_target": {
+            "S": "8"
+          },
+          "walk_target": {
+            "S": "16"
+          },
+          "pitch_die": {
+            "S": "4"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Maria"
+          },
+          "last_name": {
+            "S": "Rice"
+          },
+          "full_name": {
+            "S": "Maria Rice"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "RP"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "3"
+          },
+          "walk_target": {
+            "S": "9"
+          },
+          "pitch_die": {
+            "S": "-4"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      },
+      {
+        "M": {
+          "first_name": {
+            "S": "Melana"
+          },
+          "last_name": {
+            "S": "Wayne"
+          },
+          "full_name": {
+            "S": "Melana Wayne"
+          },
+          "jersey": {
+            "S": "0"
+          },
+          "position": {
+            "S": "RP"
+          },
+          "handedness": {
+            "S": "R"
+          },
+          "batting_target": {
+            "S": "3"
+          },
+          "walk_target": {
+            "S": "10"
+          },
+          "pitch_die": {
+            "S": "-4"
+          },
+          "traits": {
+            "S": ""
+          }
+        }
+      }
+    ]
+  },
+  "player_count": {
+    "N": "25"
+  }
+}
