@@ -11,41 +11,93 @@ from random import randint,shuffle
 # I legitimately can't remember if class creators are private,
 # so I hastily made this wrapper function
 # and I need to fix this later
-def new_league(names):
-    return League(names)
+def new_league(league_name,names):
+    return League(league_name,names)
 
 
 
 class League(object):
-    def __init__(self,name_list):
-        self.name = 'Example Baseball League'
-        self.teams = self.generate_teams(generate_names(6))
-        self.former_teams = list()
+    def __init__(self,league_name,name_list):
+        self.name = league_name
         self.total_number_of_teams = 0
+        self.teams = list()
+        self.current_teams = list()
+        self.former_teams = list()
+        self.divisions = list()
+
+
+
+        for name in name_list:
+            self.add_team(name)
+
 
         # Allows schedule to be referred to abstractly
         # Might be useful in the future
         self.schedule_system = self.simple_round_robin
         self.schedule_rounds = 11
 
-        self.years = dict()
+        self.history = dict()
 
 
 
+    def get_current_teams(self):
+        return [x for x in self.teams if x.id in self.current_teams]
+
+    def get_rankings(self):
+        return sorted(self.teams, key= lambda x: x.results['W'],reverse = True)
 
 
 
-
-    def generate_teams(self,names):
-        team_list = list()
-        x = 0
-
-        for name in names:
-            team_list.append(Team(self,name))
-
-        return team_list
+    # Team Management
+    def add_team(self,name):
+        newTeam = Team(self,self.total_number_of_teams,name)
+        self.current_teams.append(self.total_number_of_teams)
+        self.total_number_of_teams += 1
+        self.teams.append(newTeam)
+        return
 
 
+    def retire_team(self,id):
+        self.current_teams.remove(id)
+        self.former_teams.append(id)
+        return
+
+
+    # Division Management
+    def add_division(self,teams_in_division):
+
+
+
+    # This is the meat of the simulation function
+    def simulate_year(self,year):
+        curr_year = dict()
+
+        # List of Teams
+        curr_year['teams'] = dict()
+        for team in self.get_current_teams():
+            curr_team = dict()
+            curr_team['name'] = team.name
+            curr_team['id'] = team.id
+            curr_team['W'] = 0
+            curr_team['L'] = 0
+            team.results['W'] = 0
+            team.results['L'] = 0
+            curr_year['teams'][team.id] = curr_team
+
+
+        for i in range(0,self.schedule_rounds):
+            self.schedule_system()
+
+        for team in self.get_current_teams():
+            curr_year['teams'][team.id]['W'] = team.results['W']
+            curr_year['teams'][team.id]['L'] = team.results['L']
+
+        self.history[year] = curr_year
+
+
+
+    # Simulate a single game
+    # TODO: Switch this out to generate more detailed statistics
     def play_game(self,home_team,away_team):
             home_team.results['HomeGames'] += 1
             away_team.results['AwayGames'] += 1
@@ -70,11 +122,12 @@ class League(object):
             loser.results['L']  += 1
 
 
+    # SCHEDULING SYSTEMS
     def simple_round_robin(self):
-        n = len(self.teams) - 1
+        n = len(self.current_teams) - 1
 
-        home = self.teams
-        away = self.teams
+        home = self.get_current_teams()
+        away = self.get_current_teams()
 
         for i in range(n):
             away = away[n:] + away[:n]
@@ -84,22 +137,55 @@ class League(object):
                 self.play_game(match[0],match[1])
 
 
-    def get_rankings(self):
-        return sorted(self.teams, key= lambda x: x.results['W'],reverse = True)
+
+
+
 
 
     # IDEA: configure with divisions, each division is 1/3 of screen
-    def display_standings(self):
+    def display_standings(self,year=""):
         # Sort teams by win total, display display_standings
 
-        print "    {:20} Standings {}".format(self.name,randint(1885,2020))
+        team_list = self.get_current_teams()
+
+        print "    {:20} Standings {}".format(self.name,year)
         print "    ======================================="
 
         print "              Name           |  W  |  L  |  %  "
-        for team in self.teams:
-            win_percentage = float(team.results['W']) / (team.results['W'] + team.results['L'])
+        for team in team_list:
+            try:
+                win_percentage = float(team.results['W']) / (team.results['W'] + team.results['L'])
+
+            except Exception as e:
+                win_percentage = .000
+
             print "-----------------------------------------------"
             print "{:28} | {:>3} | {:>3} | {:.3f}".format(team.name,team.results['W'],team.results['L'],win_percentage)
+
+
+    def display_historic_standings(self,year):
+
+        team_list = self.history[year]
+
+        print "    {:20} Standings {}".format(self.name,year)
+        print "    ======================================="
+
+        print "              Name           |  W  |  L  |  %  "
+        for team in [team_list['teams'][x] for x in team_list['teams']]:
+
+            try:
+                win_percentage = float(team['W']) / (team['W'] + team['L'])
+
+            except Exception as e:
+                win_percentage = .000
+
+            print "-----------------------------------------------"
+            print "{:28} | {:>3} | {:>3} | {:.3f}".format(team['name'],team['W'],team['L'],win_percentage)
+
+
+
+
+
 
 
 #
@@ -109,6 +195,7 @@ class League(object):
 class Team(object):
     def __init__(self,league,id,name):
         self.league = league
+        self.city = ""
         self.name = name
         self.id = id
         self.results = dict()
@@ -117,33 +204,8 @@ class Team(object):
             self.results[attribute] = 0
 
 
-    def disband_team(self):
-        print "[disband_team] not implemented"
-
-
-# Function taken from Makis on StackOverflow
-def create_schedule(list):
-    """ Create a schedule for the teams in the list and return it"""
-    s = []
-
-    if len(list) % 2 == 1:
-        list = list + ["BYE"]
-
-    for i in range(len(list)-1):
-        mid = int(len(list) / 2)
-        l1 = list[:mid]
-        l2 = list[mid:]
-        l2.reverse()
-
-        # Switch sides after each round
-        if(i % 2 == 1):
-               s = s + [ zip(l1, l2) ]
-        else:
-                s = s + [ zip(l2, l1) ]
-
-        list.insert(1, list.pop())
-
-    return s
+    def get_record(self):
+        return self.results
 
 
 def generate_names(x):
@@ -162,7 +224,10 @@ def generate_names(x):
 
     for i in range(x):
         curr = "{} {}".format(cities[randint(0,len(cities)-1)],
-                              names.pop())
+                              names[randint(0,len(names)-1)])
         results.append(curr)
+
+    if x == 1:
+        return results[0]
 
     return results

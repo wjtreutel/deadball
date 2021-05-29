@@ -1,24 +1,8 @@
 from leaguefunctions import *
 
 
-names = ['A','B','C','D','E','F','G','H']
+curr_league = new_league("Example Baseball League",generate_names(6))
 
+curr_league.simulate_year(2020)
 
-curr_league = new_league(names)
-
-
-for i in range(0,11):
-    curr_league.play_round_robin()
-
-for x in curr_league.teams:
-    print x.name
-    print x.results
-
-'''
-print "# of Rounds?"
-choice = raw_input('> ')
-for i in range (0,int(choice)):
-    play_games(league)
-
-print results
-'''
+curr_league.display_historic_standings(2020)
