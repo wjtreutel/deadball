@@ -18,9 +18,9 @@ class Player(object):
         self.onBasePercentage = self.battingAverage + randint(1,6) + randint(1,6)
         self.handedness = self.rollHandedness()
         self.traits = self.rollTraits()
-    
 
-    
+
+
     def rollHandedness(self):
         roll = randint(1,10)
         if roll in range(0,7):
@@ -32,7 +32,7 @@ class Player(object):
 
 
     def rollBattingAverage(self):
-        return 20.0 # Mendoza Line 
+        return 20.0 # Mendoza Line
 
     def rollTraits(self):
         traits = []
@@ -41,9 +41,9 @@ class Player(object):
 
 
     def display(self):
-        traitList = ' '.join(self.traits) 
+        traitList = ' '.join(self.traits)
         print "{:2d} | {:2} | {:22} | {} | {:6} | BT: {:2.0f} / WT: {:2.0f}".format(self.rank,self.position,self.fullName,self.handedness,traitList,self.battingAverage,self.onBasePercentage)
-      
+
 
 class Hitter(Player):
     def rollBattingAverage(self):
@@ -152,11 +152,11 @@ class Team:
         #Shuffle the jersey numbers (simpler way to randomize)
         shuffle(self.jerseyPool)
 
-        for pos in self.positionPool: 
+        for pos in self.positionPool:
             newPlayer = Hitter(position=pos,rank=self.jerseyPool.pop())
             batterScore = batterScore + newPlayer.battingAverage
             self.roster.append(newPlayer)
-       
+
         # Generate 5 pinch hitters
         for x in range(0,5):
             newPH = PinchHitter("PH",self.jerseyPool.pop())
@@ -174,14 +174,14 @@ class Team:
             newReliever = StartingPitcher("RP",self.jerseyPool.pop())
             pitcherScore = pitcherScore + newReliever.pitchScore
             self.roster.append(newReliever)
-        
+
         self.teamScore = (batterScore + (pitcherScore * 7)) / 10
 
     def displayTeam(self):
        # print "[ {} {} ]".format(self.city,self.name)
        # print "Managed by {}".format(self.manager)
 
-        
+
         print "=" * 64
         for player in self.roster[0:8]:
             player.display()
@@ -197,7 +197,7 @@ class Team:
         print "=" * 64
         for player in self.roster[18:]:
             player.display()
-        print "=" *  64 
+        print "=" *  64
 
         print "TEAM SCORE: {}".format(int(round(self.teamScore)))
 

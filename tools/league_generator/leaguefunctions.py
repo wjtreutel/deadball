@@ -31,29 +31,30 @@ class League(object):
             round = zip(home,away)
 
             for match in round:
-                match[0].results['HomeGames'] += 1
-                match[1].results['AwayGames'] += 1
+                self.play_game(match[0],match[1])
 
-                gamescore = randint(0,99)
+    def play_game(self,home_team,away_team):
+            home_team.results['HomeGames'] += 1
+            away_team.results['AwayGames'] += 1
 
-
-                # Technically this gives the home team a slight (1%)
-                # advantage if they're worse than the away team,
-                # but I'll chalk that up to home field advantage
-                # rather than spend time making a cleaner calculation
-                home_team_odds = match[0].team_score - match[1].team_score + 50
-
-                if (gamescore < home_team_odds):
-                    winner = match[0]
-                    loser = match[1]
-                else:
-                    winner = match[1]
-                    loser = match[0]
-
-                winner.results['W'] += 1
-                loser.results['L']  += 1
+            gamescore = randint(0,99)
 
 
+            # Technically this gives the home team a slight (1%)
+            # advantage if they're worse than the away team,
+            # but I'll chalk that up to home field advantage
+            # rather than spend time making a cleaner calculation
+            home_team_odds = home_team.team_score - away_team.team_score + 50
+
+            if (gamescore < home_team_odds):
+                winner = home_team
+                loser  = away_team
+            else:
+                winner = away_team
+                loser  = home_team
+
+            winner.results['W'] += 1
+            loser.results['L']  += 1
 
 
 
@@ -65,7 +66,6 @@ class Team(object):
         self.team_score = randint(20,80)
         for attribute in ['W','L','HomeGames','AwayGames']:
             self.results[attribute] = 0
-
 
 
 
@@ -93,28 +93,3 @@ def create_schedule(list):
         list.insert(1, list.pop())
 
     return s
-
-
-def simple_round_robin(teams):
-    home = teams
-    away = teams
-
-
-
-
-def play_games(teams):
-    schedule = simple_round_robin(teams)
-
-    for day in schedule:
-        for match in day:
-            if (randint(0,100) % 2):
-                winner = match[0]
-                loser = match[1]
-            else:
-                winner = match[1]
-                loser = match[0]
-
-            results[winner]['W'] += 1
-            results[loser]['L'] += 1
-            results[match[0]]['HomeGames'] += 1
-            results[match[1]]['AwayGames'] += 1
