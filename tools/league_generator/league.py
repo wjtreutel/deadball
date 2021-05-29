@@ -114,7 +114,7 @@ class League(object):
 
         for i in range(n):
             away = away[n:] + away[:n]
-            round = zip(home,away)
+            round = list(zip(home,away))
 
             for match in round:
                 self.play_game(match[0],match[1])
@@ -131,10 +131,10 @@ class League(object):
 
         team_list = self.get_current_teams()
 
-        print "    {:20} Standings {}".format(self.name,year)
-        print "    ======================================="
+        print(("    {:20} Standings {}".format(self.name,year)))
+        print("    =======================================")
 
-        print "              Name           |  W  |  L  |  %  "
+        print("              Name           |  W  |  L  |  %  ")
         for team in team_list:
             try:
                 win_percentage = float(team.results['W']) / (team.results['W'] + team.results['L'])
@@ -142,18 +142,18 @@ class League(object):
             except Exception as e:
                 win_percentage = .000
 
-            print "-----------------------------------------------"
-            print "{:28} | {:>3} | {:>3} | {:.3f}".format(team.name,team.results['W'],team.results['L'],win_percentage)
+            print("-----------------------------------------------")
+            print(("{:28} | {:>3} | {:>3} | {:.3f}".format(team.name,team.results['W'],team.results['L'],win_percentage)))
 
 
     def display_historic_standings(self,year):
 
         team_list = self.history[year]
 
-        print "    {:20} Standings {}".format(self.name,year)
-        print "    ======================================="
+        print(("    {:20} Standings {}".format(self.name,year)))
+        print("    =======================================")
 
-        print "              Name           |  W  |  L  |  %  "
+        print("              Name           |  W  |  L  |  %  ")
         for team in [team_list['teams'][x] for x in team_list['teams']]:
 
             try:
@@ -162,5 +162,5 @@ class League(object):
             except Exception as e:
                 win_percentage = .000
 
-            print "-----------------------------------------------"
-            print "{:28} | {:>3} | {:>3} | {:.3f}".format(team['name'],team['W'],team['L'],win_percentage)
+            print("-----------------------------------------------")
+            print(("{:28} | {:>3} | {:>3} | {:.3f}".format(team['name'],team['W'],team['L'],win_percentage)))

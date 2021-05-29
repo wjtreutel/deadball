@@ -42,7 +42,7 @@ class Player(object):
 
     def display(self):
         traitList = ' '.join(self.traits)
-        print "{:2d} | {:2} | {:22} | {} | {:6} | BT: {:2.0f} / WT: {:2.0f}".format(self.rank,self.position,self.fullName,self.handedness,traitList,self.battingAverage,self.onBasePercentage)
+        print(("{:2d} | {:2} | {:22} | {} | {:6} | BT: {:2.0f} / WT: {:2.0f}".format(self.rank,self.position,self.fullName,self.handedness,traitList,self.battingAverage,self.onBasePercentage)))
 
 
 class Hitter(Player):
@@ -130,12 +130,12 @@ class StartingPitcher(Player):
     def display(self):
         traitList = ' '.join(self.traits)
 
-        print "{:2d} | {:2} | {:22} | {} | {:6} | BT: {:2.0f} / WT: {:2.0f} | {}".format(self.rank,self.position,self.fullName,self.handedness,traitList,self.battingAverage,self.onBasePercentage,self.pitchDie)
+        print(("{:2d} | {:2} | {:22} | {} | {:6} | BT: {:2.0f} / WT: {:2.0f} | {}".format(self.rank,self.position,self.fullName,self.handedness,traitList,self.battingAverage,self.onBasePercentage,self.pitchDie)))
 
 
 class Team:
     def __init__(self):
-        self.jerseyPool = range(0,100)
+        self.jerseyPool = list(range(0,100))
         self.positionPool = ['C','1B','2B','3B','SS','LF','CF','RF']
         self.city = "Seattle"
         self.name = "Pilots"
@@ -182,24 +182,24 @@ class Team:
        # print "Managed by {}".format(self.manager)
 
 
-        print "=" * 64
+        print(("=" * 64))
         for player in self.roster[0:8]:
             player.display()
 
-        print "=" * 64
+        print(("=" * 64))
         for player in self.roster[8:13]:
             player.display()
 
-        print "=" * 64
+        print(("=" * 64))
         for player in self.roster[13:18]:
             player.display()
 
-        print "=" * 64
+        print(("=" * 64))
         for player in self.roster[18:]:
             player.display()
-        print "=" *  64
+        print(("=" *  64))
 
-        print "TEAM SCORE: {}".format(int(round(self.teamScore)))
+        print(("TEAM SCORE: {}".format(int(round(self.teamScore)))))
 
     def generateBattingOrder(self):
         battingOrder = self.roster[0:8]
@@ -214,21 +214,21 @@ minimumScore = 0
 maximumScore = 999
 
 if len(argv) > 3:
-    print argv
-    print "ERROR: Too many arguments"
-    print "(Usage: python teamgenerator.py <optional minimum score, or 0 if using max score> <optional maximum score>)"
+    print(argv)
+    print("ERROR: Too many arguments")
+    print("(Usage: python teamgenerator.py <optional minimum score, or 0 if using max score> <optional maximum score>)")
     exit()
 if len(argv) == 3:
     try:
         maximumScore = int(argv[2])
     except:
-        print "ERROR: Cannot convert '{}' to integer".format(argv[2])
+        print(("ERROR: Cannot convert '{}' to integer".format(argv[2])))
         exit()
 if len(argv) >= 2:
     try:
         minimumScore = int(argv[1])
     except:
-        print "ERROR: Cannot convert '{}' to integer".format(argv[1])
+        print(("ERROR: Cannot convert '{}' to integer".format(argv[1])))
         exit()
 
 
@@ -241,23 +241,23 @@ newTeam.displayTeam()
 teamData = jsonpickle.encode(newTeam)
 
 
-print "Would you like to save this team?"
-reply = raw_input('> ')
+print("Would you like to save this team?")
+reply = eval(input('> '))
 if (reply in ['Y','y','yes','YES','Yes']):
-    print "Enter filename (.txt) you would like to save to:"
-    reply = raw_input('> ')
+    print("Enter filename (.txt) you would like to save to:")
+    reply = eval(input('> '))
     # Save
     outfile = "{}.roster".format(reply)
-    print outfile
+    print(outfile)
     while os.path.exists(outfile):
-        print "ERROR: '{}' already exists".format(outfile)
-        print "Please enter a different filename"
-        reply = raw_input('> ')
+        print(("ERROR: '{}' already exists".format(outfile)))
+        print("Please enter a different filename")
+        reply = eval(input('> '))
         outfile = "{}.roster".format(reply)
     savefile = open(outfile,'w')
     savefile.write(teamData)
     savefile.close()
-    print "<<Output to file>>"
+    print("<<Output to file>>")
 
 else:
-    print "Exiting . . ."
+    print("Exiting . . .")
