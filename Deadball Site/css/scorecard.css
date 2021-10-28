@@ -1,0 +1,291 @@
+/* Scorecard Generator Styling */
+
+@media screen {
+  body {
+    text-align: center;
+  }
+
+  table {
+    empty-cells: show;
+    border-collapse: collapse;
+  }
+
+  td, th {
+    text-align: center;
+    width: 15px;
+    border: 1px solid black;
+  }
+
+
+  hr {
+    border: 1px solid black;
+    width: 95%;
+  }
+
+
+  /* Top of the Page styling */
+
+  .header {
+    height: 4.3em;
+  }
+
+  .title {
+    font-size: 5em;
+    font-family: 'Cousine', monospace;
+  }
+
+  .label {
+    font-size: 1em;
+    font-family: sans-serif;
+  }
+
+  .teamHeader {
+    font-size: 2em;
+    font-family: sans-serif;
+  }
+
+  #boxScoreTable th {
+    width: 1.5em;
+  }
+
+  #boxScoreTable td:first-child {
+    padding-left: .3em;
+    padding-right: 6em;
+
+    text-align: left;
+    font-size: .8em;
+    font-weight: bold;
+  }
+
+
+  /* Scorecard Table */
+
+  /* These values should be the same, to make the cells square */
+  .wideCell {
+    width: 4em;
+    height: 4em;
+  }
+
+  .rightBorder {
+    border-right: .2em solid black;
+  }
+
+  /* Height of Pitcher Row / Last Box of Scorecard */
+  .PitcherRow {
+    height: 6em;
+  }
+
+  /* Roster Table */
+
+  .rostersBox {
+    padding-top: 2em;
+  }
+
+  .namebox {
+    width: 14em;
+  }
+
+  .traitbox {
+    width: 6em;
+  }
+
+  .rosterTable td {
+    font-size: .9em;
+  }
+
+  .rosterTable th {
+    padding: .5em;
+    font-size: .9em;
+  }
+
+  /* Blank Top-Right Corner */
+  .rosterTable th:first-child {
+    width: 3em;
+  }
+
+  /* Name Box */
+  .rosterTable th:nth-child(2) {
+    width: 12em;
+  }
+
+  /* Traits Box */
+  .rosterTable th:nth-child(7) {
+    width: 8em;
+  }
+
+  #hitterTable {
+    margin-left: 6em;
+  }
+
+
+  .scorecardTable th {
+    font-size: .7em;
+  }
+
+  .scorecardTable td {
+    font-size: .8em
+  }
+
+  .scorecardTable td:first-child {
+    width: 16em;
+    font-size: 1em;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Print Preview */
+@media print {
+  table {
+    empty-cells: show;
+    border-collapse: collapse;
+  }
+
+  td, th {
+    text-align: center;
+    width: 1em;
+    border: .02em solid black;
+  }
+
+
+  hr {
+    border: .02em solid black;
+    width: 95%;
+  }
+
+
+  /* Top of the Page styling */
+  .teamHeader {
+      font-size: 2em;
+      font-family: sans-serif;
+    }
+
+  .header {
+    height: 3.3em;
+  }
+
+  .title {
+    font-size: 4em;
+    font-family: 'Cousine', monospace;
+  }
+
+  .label {
+    font-size: 1em;
+    font-family: sans-serif;
+  }
+
+
+
+  /* Scorecard Table */
+
+  /* These values should be the same, to make the cells square */
+  .wideCell {
+    width: 3.2em;
+    height: 3.2em;
+  }
+
+  .rightBorder {
+    border-right: .2em solid black;
+  }
+
+
+
+  /* Height of Pitcher Row / Last Box of Scorecard */
+  .PitcherRow {
+    height: 6em;
+  }
+
+  /* Roster Table */
+
+  .rostersBox {
+    padding-top: 1em;
+  }
+
+  .namebox {
+    width: 14em;
+  }
+
+  .traitbox {
+    width: 6em;
+  }
+
+  .rosterTable th {
+    padding: .2em;
+    font-size: .5em;
+  }
+
+  .rosterTable td {
+    font-size: .6em;
+  }
+
+  /* Blank Top-Right Corner */
+  .rosterTable th:first-child {
+    width: 3em;
+  }
+
+  /* Name Box */
+  .rosterTable td:nth-child(2) {
+    width: 15em;
+    text-align: left;
+    padding-left: 1em;
+  }
+
+  /* Traits Box */
+  .rosterTable th:nth-child(7) {
+    width: 12em;
+  }
+
+  #hitterTable {
+   margin-left: 2em;
+  }
+
+  .noPrint {
+  display: none;
+  }
+
+
+  .scorecardTable th {
+    font-size: .7em;
+    width: 2.5em;
+  }
+
+  .scorecardTable td:first-child {
+    width: 12em;
+    font-size: .8em;
+  }
+
+  .scorecardTable td {
+    font-size: .6em;
+  }
+
+
+  #boxScoreTable {
+    margin-left: 5em;
+  }
+
+  #boxScoreTable col {
+    width: 2em;
+  }
+
+  #boxScoreTable th {
+    font-size: .8em;
+    width: 3em;
+    }
+
+  #boxScoreTable td:first-child {
+    padding-left: .3em;
+    padding-right: 6em;
+
+    text-align: left;
+    font-size: .8em;
+    font-weight: bold;
+  }

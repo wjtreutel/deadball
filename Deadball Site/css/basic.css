@@ -1,0 +1,20 @@
+td {
+  font-size: small;
+}
+
+
+#bannerContainer {
+  padding-top: 3em;
+}
+
+.bannerImage {
+  height: 6em;
+}
+
+.bannerText {
+  font-size: 5em;
+}
+
+.brandImage {
+  height: 2em;
+}

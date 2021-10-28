@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Scorecard Generator</title>
+    <!-- Welcome back to 1999 -->
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+    <!-- Apply Bootstrap and custom CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/basic.css">
+    <link rel="stylesheet" href="css/scorecard.css">
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:wght@700&family=Sriracha&display=swap" rel="stylesheet">
+</head>
+
+<body spellcheck="false">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light noPrint">
+        <a class="navbar-brand" href="#">
+            <h2></h2>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="./index.html">MLB Rosters</a>
+                <a class="nav-item nav-link" href="./scorecard.html">Scorecard <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="./scorecard2P.html">Scorecard (2P)</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container row noPrint controls text-center">
+      <div class="col">
+          <select class="dropdown" id="teamSelectDropdown">
+            <option value="BST">Broad Street Peacocks</option>
+            <option value="CHV">Charlottesville Flycatchers</option>
+            <option value="CPR">Cooper River Chickadees</option>
+            <option value="GTY">Gettysburg Owls</option>
+            <option value="KNX">Knoxville Grackles</option>
+            <option value="PAD">Paducah Redbirds</option>
+            <option value="TLH">Tallahassee Wrens</option>
+            <option value="WLM">Williamsburg Ospreys</option>
+          </select>
+          <button type="button" name="button" id="submitData" class="noPrint">Fill Scorecard</button>
+
+      </div>
+    </div>
+
+    <div class="container row header">
+        <div class="col-sm-3 col-lg-6">
+            <h1 class="title">DEADBALL</h1>
+        </div>
+        <div class="col-sm-6 col-lg-6">
+            <table id="boxScoreTable">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>R</th>
+                        <th>H</th>
+                        <th>E</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <hr />
+
+
+    <div contenteditable="true" class="container hidden">
+        <div class="col-sm-9 col-lg-12 text-center">
+            <h3 class="label teamHeader">[SELECT TEAM]</h3>
+        </div>
+        <!-- Scorecard Table -->
+        <table class="scorecardTable">
+            <thead>
+                <tr>
+                    <th>PLAYER NAME</th>
+                    <th>POS</th>
+                    <th>L/R</th>
+                    <th>BT</th>
+                    <th>OBT</th>
+                    <th class="rightBorder">TR</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th>9</th>
+                    <th>10</th>
+                    <th>11</th>
+                    <th>12</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="rostersBox container row hidden">
+        <div class="hitterRoster col-lg-6 col-sm-4">
+            <!-- Batters Table -->
+            <table class="rosterTable" id="hitterTable">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>BATTERS</th>
+                        <th>POS</th>
+                        <th>L/R</th>
+                        <th>BT</th>
+                        <th>OBT</th>
+                        <th>TRAITS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pitcherRoster col-lg-6 col-sm-4">
+            <!-- Pitcher Table -->
+            <table class="rosterTable text-left" id="pitcherTable">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>PITCHERS</th>
+                        <th>PD</th>
+                        <th>L/R</th>
+                        <th>BT</th>
+                        <th>OBT</th>
+                        <th>TRAITS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <h3 class="label">MANAGER:</h3>
+            <h3 class="label">DARING:</h3>
+        </div>
+    </div>
+</body>
+
+
+<script src="js/jquery-3.1.0.js"></script>
+<script src="js/generateScorecard.js" charset="utf-8"></script>
+
+</html>
